@@ -29,6 +29,7 @@ const BROWSERIFY_ENTRIES = [
 const BROWSERIFY_TRANSFORMS = [
   'babelify',
   'debowerify',
+  'hbsfy',
 ];
 
 const OTHER_SCRIPTS = [

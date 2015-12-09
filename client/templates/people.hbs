@@ -1,0 +1,7 @@
+<div id="people">
+    {{#each .}}
+        <div id="{{type}}" class="people-group {{type}}">
+            {{> person_group .}}
+        </div>
+    {{/each}}
+</div>
