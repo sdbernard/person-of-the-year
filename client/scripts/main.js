@@ -1,6 +1,9 @@
 import oHoverable from 'o-hoverable';
 import attachFastClick from 'fastclick';
 import mainTemplate from '../templates/main.hbs';
+import peopleTemplate from '../templates/people.hbs';
+import person_item from '../templates/_person_item.hbs';
+import person_group from '../templates/_person_group.hbs';
 
 document.addEventListener('DOMContentLoaded', () => {
   // make hover effects work on touch devices
@@ -32,4 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(groups);
   document.querySelector('main').innerHTML = mainTemplate(dataset);
+
+var indicators = require('../templates/indicators.hbs');
+
+  var indicatorsHTML = indicators(groups, {
+    partials: {
+      indicator_item: require('../templates/_indicator_item.hbs'),
+      indicator_group: require('../templates/_indicator_group.hbs'),
+    }
+  });
+
+ $('.container').html(indicatorsHTML);
+ 
+  var peopleHTML = peopleTemplate(groups, {
+    partials: {
+      person_item,
+      person_group
+    }
+  });
+  
+  document.querySelector('.content').innerHTML = peopleHTML;
+
+
+
 });
